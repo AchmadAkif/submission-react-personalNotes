@@ -10,7 +10,7 @@ function Form({ handleNotesTitleInput, handleNotesContentInput, handleFormSubmit
       <span className='self-end'>Sisa karakter : {50 - inputLength}</span>
       <TitleInput handleNotesTitleInput={handleNotesTitleInput} notesTitleInput={notesTitleInput} />
       <TextArea handleNotesContentInput={handleNotesContentInput} notesContentInput={notesContentInput} />
-      <Button name='Buat' style='border-2 rounded-md py-2' />
+      <Button name='Buat' type='submit' style='border-2 rounded-md py-2' />
     </form>
   );
 }
