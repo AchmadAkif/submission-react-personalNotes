@@ -1,5 +1,5 @@
 import React from 'react';
-import { getInitialData } from './utils';
+import { getInitialData, showFormattedDate } from './utils';
 import './App.css';
 import Header from './Components/Header';
 import Form from './Components/Form';
@@ -57,7 +57,21 @@ class App extends React.Component {
   }
 
   onSubmitForm(e) {
+    const noteData = {
+      id: Date.now(),
+      title: this.state.notesTitleInput,
+      body: this.state.notesContentInput,
+      archived: false,
+      createdAt: showFormattedDate(new Date())
+    };
+
+    console.log(noteData);
     e.preventDefault();
+
+    this.setState({
+      notesTitleInput: '',
+      notesContentInput: ''
+    });
   }
 
   onNoteItemRemove() { }
