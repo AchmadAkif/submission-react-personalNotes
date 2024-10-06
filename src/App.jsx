@@ -44,6 +44,7 @@ class App extends React.Component {
             noteList={this.state.noteList}
             handleNoteItemRemove={this.onNoteItemRemove}
             handleNoteItemArchived={this.onNoteItemArchived}
+            searchQuery={this.state.searchQuery}
           />
         </div>
       </div>
@@ -52,7 +53,7 @@ class App extends React.Component {
 
   onSearchQueryChange(e) {
     this.setState({
-      searchQuery: e.target.value
+      searchQuery: e.target.value,
     });
   };
 

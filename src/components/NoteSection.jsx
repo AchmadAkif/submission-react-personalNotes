@@ -1,12 +1,12 @@
 import React from 'react';
 import NoteItem from './NoteItem';
 
-const NoteSection = ({ noteList, handleNoteItemRemove, handleNoteItemArchived }) => {
+const NoteSection = ({ noteList, handleNoteItemRemove, handleNoteItemArchived, searchQuery }) => {
   return (
     <>
       <section className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        {noteList.length !== 0 ?
-          noteList.map(note => (
+        {noteList.length !== 0
+          ? noteList.filter(note => note.title.toLowerCase().includes(searchQuery)).map(note => (
             <NoteItem
               key={note.id}
               noteId={note.id}
