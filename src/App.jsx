@@ -65,18 +65,29 @@ class App extends React.Component {
       createdAt: showFormattedDate(new Date())
     };
 
-    console.log(noteData);
-    e.preventDefault();
-
     this.setState({
       notesTitleInput: '',
-      notesContentInput: ''
+      notesContentInput: '',
+      noteList: [...this.state.noteList, noteData]
     });
+
+
+    e.preventDefault();
   }
 
-  onNoteItemRemove() { }
+  onNoteItemRemove(noteId) {
+    const arr = this.state.noteList;
 
-  onNoteItemArchived() { }
+    this.setState({
+      noteList: arr.filter(element => element.id !== noteId)
+    });
+
+    console.log(arr);
+  }
+
+  onNoteItemArchived(noteId) {
+    console.log(noteId, "arsip");
+  }
 }
 
 export default App;
