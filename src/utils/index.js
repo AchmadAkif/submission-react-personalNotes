@@ -53,4 +53,8 @@ const showFormattedDate = (date) => {
   return new Date(date).toLocaleDateString("id-ID", options)
 }
 
-export { getInitialData, showFormattedDate };
+const noteFilterTitle = (arr, query) => {
+  return arr.filter(e => e.title.toLowerCase().includes(query))
+}
+
+export { getInitialData, showFormattedDate, noteFilterTitle };
