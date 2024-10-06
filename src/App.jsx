@@ -28,10 +28,23 @@ class App extends React.Component {
   render() {
     return (
       <div className='bg-[#18181B] text-white'>
-        <Header handleSearchQueryChange={this.onSearchQueryChange} searchQuery={this.state.searchQuery} />
-        <div className='flex flex-col gap-y-32 px-48'>
-          <Form handleNotesTitleInput={this.onNotesTitleInput} handleNotesContentInput={this.onNotesContentInput} handleFormSubmit={this.onSubmitForm} notesTitleInput={this.state.notesTitleInput} notesContentInput={this.state.notesContentInput} inputLength={this.state.inputLength} />
-          <NotesCollection noteList={this.state.noteList} handleNoteItemRemove={this.onNoteItemRemove} handleNoteItemArchived={this.onNoteItemArchived} />
+        <Header
+          handleSearchQueryChange={this.onSearchQueryChange}
+          searchQuery={this.state.searchQuery} />
+        <div className='flex flex-col gap-y-32 px-48 pb-20'>
+          <Form
+            handleNotesTitleInput={this.onNotesTitleInput}
+            handleNotesContentInput={this.onNotesContentInput}
+            handleFormSubmit={this.onSubmitForm}
+            notesTitleInput={this.state.notesTitleInput}
+            notesContentInput={this.state.notesContentInput}
+            inputLength={this.state.inputLength}
+          />
+          <NotesCollection
+            noteList={this.state.noteList}
+            handleNoteItemRemove={this.onNoteItemRemove}
+            handleNoteItemArchived={this.onNoteItemArchived}
+          />
         </div>
       </div>
     );
@@ -71,7 +84,6 @@ class App extends React.Component {
       noteList: [...this.state.noteList, noteData]
     });
 
-
     e.preventDefault();
   }
 
@@ -87,7 +99,6 @@ class App extends React.Component {
     const arr = this.state.noteList;
     const findIndex = arr.findIndex(e => e.id === noteId);
     const newE = { ...arr[findIndex], archived: !arr[findIndex].archived };
-    console.log(newE);
 
     this.setState({
       noteList: [...arr.filter(e => e.id !== noteId), newE]
