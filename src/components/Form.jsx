@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TitleInput from './common/TitleInput';
 import TextArea from './common/TextArea';
-import Button from './common/Button';
 
 function Form({ handleNotesTitleInput, handleNotesContentInput, handleFormSubmit, notesTitleInput, notesContentInput, inputLength }) {
   return (
@@ -10,7 +9,7 @@ function Form({ handleNotesTitleInput, handleNotesContentInput, handleFormSubmit
       <span className='self-end'>Sisa karakter : {50 - inputLength}</span>
       <TitleInput handleNotesTitleInput={handleNotesTitleInput} notesTitleInput={notesTitleInput} />
       <TextArea handleNotesContentInput={handleNotesContentInput} notesContentInput={notesContentInput} />
-      <Button name='Buat' type='submit' style='border-2 rounded-md py-2' />
+      <button type='submit' className='border-2 rounded-md py-2'>Buat</button>
     </form>
   );
 }
