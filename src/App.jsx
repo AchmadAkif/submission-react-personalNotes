@@ -14,7 +14,7 @@ class App extends React.Component {
       notesTitleInput: '',
       notesContentInput: '',
       noteList: getInitialData(),
-      inputLength: 0
+      maxChar: 50
     };
 
     this.onSearchQueryChange = this.onSearchQueryChange.bind(this);
@@ -38,7 +38,6 @@ class App extends React.Component {
             handleFormSubmit={this.onSubmitForm}
             notesTitleInput={this.state.notesTitleInput}
             notesContentInput={this.state.notesContentInput}
-            inputLength={this.state.inputLength}
           />
           <NotesCollection
             noteList={this.state.noteList}
@@ -60,8 +59,14 @@ class App extends React.Component {
   onNotesTitleInput(e) {
     this.setState({
       notesTitleInput: e.target.value,
-      inputLength: e.target.value.length
+      maxChar: 51 - e.target.value.length
     });
+
+    if (e.target.value.length > 50) {
+      this.setState({
+        notesTitleInput: e.target.value.substr(0, 50)
+      });
+    }
   }
 
   onNotesContentInput(e) {
