@@ -1,9 +1,9 @@
 import React from 'react';
 import { getInitialData, showFormattedDate } from './utils';
 import './App.css';
-import Header from './Components/Header';
-import Form from './Components/Form';
-import NotesCollection from './components/NotesCollection';
+import Header from './Components/layouts/Header';
+import Form from './Components/container/Form';
+import NotesCollection from './components/container/NotesCollection';
 
 class App extends React.Component {
   constructor(props) {

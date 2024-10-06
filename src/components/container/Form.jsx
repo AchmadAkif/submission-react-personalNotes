@@ -1,6 +1,6 @@
 import React from 'react';
-import TitleInput from './common/TitleInput';
-import TextArea from './common/TextArea';
+import TitleInput from '../common/TitleInput';
+import TextArea from '../common/TextArea';
 
 function Form({ handleNotesTitleInput, handleNotesContentInput, handleFormSubmit, notesTitleInput, notesContentInput, inputLength }) {
   return (

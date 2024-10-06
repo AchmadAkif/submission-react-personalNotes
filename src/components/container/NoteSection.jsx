@@ -1,5 +1,5 @@
 import React from 'react';
-import { noteFilterTitle } from '../utils';
+import { noteFilterTitle } from '../../utils';
 import NoteItem from './NoteItem';
 
 const NoteSection = ({ noteList, handleNoteItemRemove, handleNoteItemArchived, searchQuery }) => {
