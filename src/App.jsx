@@ -81,12 +81,17 @@ class App extends React.Component {
     this.setState({
       noteList: arr.filter(element => element.id !== noteId)
     });
-
-    console.log(arr);
   }
 
   onNoteItemArchived(noteId) {
-    console.log(noteId, "arsip");
+    const arr = this.state.noteList;
+    const findIndex = arr.findIndex(e => e.id === noteId);
+    const newE = { ...arr[findIndex], archived: !arr[findIndex].archived };
+    console.log(newE);
+
+    this.setState({
+      noteList: [...arr.filter(e => e.id !== noteId), newE]
+    });
   }
 }
 
