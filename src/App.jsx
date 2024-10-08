@@ -4,6 +4,7 @@ import './App.css';
 import Header from './Components/layouts/Header';
 import Form from './Components/container/Form';
 import NotesCollection from './components/container/NotesCollection';
+import Footer from './components/layouts/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends React.Component {
             searchQuery={this.state.searchQuery}
           />
         </div>
+        <Footer />
       </div>
     );
   }
