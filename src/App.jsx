@@ -76,19 +76,24 @@ class App extends React.Component {
   }
 
   onSubmitForm(e) {
-    const noteData = {
-      id: Date.now(),
-      title: this.state.notesTitleInput,
-      body: this.state.notesContentInput,
-      archived: false,
-      createdAt: showFormattedDate(new Date())
-    };
+    const titleState = this.state.notesTitleInput;
+    const contentState = this.state.notesContentInput;
 
-    this.setState({
-      notesTitleInput: '',
-      notesContentInput: '',
-      noteList: [...this.state.noteList, noteData]
-    });
+    if (titleState || contentState !== '') {
+      const noteData = {
+        id: Date.now(),
+        title: titleState,
+        body: contentState,
+        archived: false,
+        createdAt: showFormattedDate(new Date())
+      };
+
+      this.setState({
+        notesTitleInput: '',
+        notesContentInput: '',
+        noteList: [...this.state.noteList, noteData]
+      });
+    }
 
     e.preventDefault();
   }
