@@ -1,10 +1,14 @@
 import React from 'react';
 import { getInitialData, showFormattedDate } from './utils';
+import { toastSuccess, toastFailed, toastInfo } from './utils/toastEmitter';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Header from './Components/layouts/Header';
 import Form from './Components/container/Form';
 import NotesCollection from './components/container/NotesCollection';
 import Footer from './components/layouts/Footer';
+import Toast from './components/common/Toast';
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <div className='bg-[#18181B] text-white'>
+        <Toast />
         <Header
           handleSearchQueryChange={this.onSearchQueryChange}
           searchQuery={this.state.searchQuery} />
@@ -94,6 +99,11 @@ class App extends React.Component {
         notesContentInput: '',
         noteList: [...this.state.noteList, noteData]
       });
+
+      toastSuccess("Catatan berhasil ditambahkan!");
+    }
+    else {
+      toastFailed("Input tidak boleh kosong!");
     }
 
     e.preventDefault();
@@ -105,6 +115,8 @@ class App extends React.Component {
     this.setState({
       noteList: arr.filter(element => element.id !== noteId)
     });
+
+    toastInfo("Catatan dihapus");
   }
 
   onNoteItemArchived(noteId) {
@@ -115,6 +127,8 @@ class App extends React.Component {
     this.setState({
       noteList: [...arr.filter(e => e.id !== noteId), newE]
     });
+
+    toastInfo("Catatan dipindah");
   }
 }
 
