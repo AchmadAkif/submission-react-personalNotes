@@ -18,7 +18,7 @@ const NoteSection = ({ noteList, handleNoteItemRemove, handleNoteItemArchived, s
               handleNoteItemArchived={handleNoteItemArchived}
             />
           ))
-          : <p>Tidak ada catatan</p>
+          : <p className='text-[#aeaeae]'>Tidak ada catatan</p>
         }
       </section>
     </>
