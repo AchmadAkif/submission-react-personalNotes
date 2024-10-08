@@ -61,10 +61,9 @@ class App extends React.Component {
   onNotesTitleInput(e) {
     this.setState({
       notesTitleInput: e.target.value,
-      maxChar: 51 - e.target.value.length
     });
 
-    if (e.target.value.length > 50) {
+    if (e.target.value.length > this.state.maxChar) {
       this.setState({
         notesTitleInput: e.target.value.substr(0, 50)
       });
