@@ -54,7 +54,7 @@ const showFormattedDate = (date) => {
 }
 
 const noteFilterTitle = (arr, query) => {
-  return arr.filter(e => e.title.toLowerCase().includes(query))
+  return arr.filter(e => e.title.toLowerCase().includes(query.toLowerCase()))
 }
 
 export { getInitialData, showFormattedDate, noteFilterTitle };
